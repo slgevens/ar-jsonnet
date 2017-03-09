@@ -1,1 +1,22 @@
 *~
+# mkdired
+.cache
+.retry
+.hide
+roles
+log
+tmp
+ext
+site
+# generated
+README.html
+CHANGELOG.html
+plugins/filter/*.pyc
+ansible.cfg
+ssh-config
+# touched
+.stone
+
+ansible.mk
+init-play-dir.yml
+inventory/local

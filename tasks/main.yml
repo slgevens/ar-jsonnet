@@ -1,0 +1,24 @@
+---
+
+- name: Check ansible version
+  fail:
+    msg: min ansible version is {{ jsonnet_min_ansible_version }}, ansible version is {{ ansible_version.string }}
+  when: ansible_version.string | version_compare(jsonnet_min_ansible_version, 'lt')
+  check_mode: False
+  tags: always
+
+- name: Checkout and compile jsonnet
+  block:
+    - file:
+        path: '{{ jsonnet_checkout_dir }}'
+        state: directory
+    - git:
+        repo: '{{ jsonnet_repo }}'
+        version: '{{ jsonnet_version }}'
+        dest: &dir '{{ jsonnet_compile_dir }}'
+    - { make: { chdir: *dir }}
+    - copy:
+        src: '{{ jsonnet_exe_file }}'
+        dest: '{{ jsonnet_install_dir }}'
+        mode: ugo+x
+      become: True

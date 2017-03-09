@@ -1,0 +1,7 @@
+---
+
+jsonnet_repo: git@github.com:google/jsonnet.git
+jsonnet_checkout_dir: ext
+jsonnet_compile_dir: '{{ jsonnet_checkout_dir }}/jsonnet'
+jsonnet_exe_file: '{{ jsonnet_compile_dir }}/jsonnet'
+jsonnet_min_ansible_version: 2.3.0

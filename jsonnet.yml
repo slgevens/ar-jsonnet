@@ -1,0 +1,6 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: Checkout and compile jsonnet
+  hosts: localhost
+  roles: [{ role: jsonnet }]

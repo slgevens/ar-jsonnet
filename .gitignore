@@ -1,4 +1,6 @@
 *~
+.mailmap
+*.retry
 # mkdired
 .cache
 .retry

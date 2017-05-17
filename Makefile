@@ -30,5 +30,5 @@ vartar  := get_url
 
 $(vartar):; @: $(eval $($@))
 
-roles/jsonnet:; cd $(@D); ln -s .. $(@F)
+roles/jsonnet:; mkdir -p $(@D) && (cd $(@D); ln -s .. $(@F))
 use: roles/jsonnet; jsonnet.yml

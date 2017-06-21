@@ -22,3 +22,4 @@ ssh-config
 ansible.mk
 init-play-dir.yml
 inventory/local
+vault-pass.py
